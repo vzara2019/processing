@@ -3,27 +3,51 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Antonio Pierro - Processign Project</title>
+        <title>Valeria Zara - Processign Project</title>
         <script src="vendors/processing.min.js"></script>
     </head>
     <body>
         <h1>Processing project by Antonio</h1>
         <script type="text/processing">
 
-            // Write your project here
-            
-            // Example
-            void setup() {
-              size(200, 200);
-              background(255);
-            }
-            void draw(){
-                pushMatrix();
-                translate(100, 100);
-                rotate(radians(frameCount * 2  % 360));
-                rect(0, 0, 80, 5);
-                popMatrix();
-            }
+            float r;
+float ex, ey;
+
+void setup () {
+size (800, 800);
+background (255);
+ex= 140;
+ey= 60;
+}
+void draw () {
+  
+  pushMatrix ();
+  translate (width/2, height/2);
+  rotate (radians(r));
+  //triangolo
+  fill(frameCount * 3 % 120, frameCount * 3 % 235,
+      frameCount * 5 % 180);
+  translate(0, 0);
+  rotate(radians(frameCount * 2  % 360));
+  triangle(0, 0, 30, 20, 0, 30);
+  
+  //rettangolo
+  fill(frameCount * 2 % 255, frameCount * 4 % 255,
+      frameCount * 3 % 255);
+  rect (ex, ey, 20, 20);
+  pushMatrix();
+  //cerchio
+  fill(frameCount * 2 % 205, frameCount * 4 % 255,
+      frameCount * 4 % 255);
+  translate(ex, ey);
+  rotate (radians (-r*3));
+   ellipse (25, ey, 10, 10);
+  
+  popMatrix ();
+  
+  popMatrix ();
+ 
+}
             
         </script>
         <canvas></canvas>
